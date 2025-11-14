@@ -32,8 +32,29 @@ int main(){
     
     cout << "Back car: ";
     lane.back().print();
+    cout << endl;
 
     return 0;
+
+    // start simulation
+    srand(time(0)); // seed randome generator
+    int timetep = 1;
+
+    // loop structure
+    while (!lane.empty()){
+        cout << "\nTime: " << timeStep << " Operation: ";
+
+        // random 0-99 
+        int r = rand() % 100; 
+
+        if (r < 55) {
+            
+        }
+
+        
+        
+        
+    }
 }    
 
 
