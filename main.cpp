@@ -48,8 +48,30 @@ int main(){
         int r = rand() % 100; 
 
         if (r < 55) {
-            
+        // below the car is paying and leaves the front of the line (55%)
+           Car paying = lane.front(); 
+           lane.pop_front();
+           cout << "Payment Complete: ";
+           paying.print();
+        } else {
+        // below a new car joins (45%)
+           car incoming;
+           lane.push_back
+           cout << " joined lane: ";
+           incoming.print();
         }
+
+        // below prints the updated queue
+        cout << "Queue:\n";
+        if (lane.empty()){
+            cout << " Empty ";
+        } else {
+        }
+
+        }
+
+
+
 
         
         
