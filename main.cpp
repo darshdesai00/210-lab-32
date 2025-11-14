@@ -3,17 +3,19 @@
 #include "Car.h"      // Car class provided by instructor
 #include <cstdlib>
 #include <ctime>
+
 using namespace std;
 
-const int INITIAL_SIZE = 2
+const int INITIAL_SIZE = 2;
 
 int main(){
+
     cout << "Begining The Toll Booth Simulation\n";
 
     deque<Car> lane; // added a makeshift lane for the toll
 
-    for (int i - 0; i < INITIAL_SIZE;) { // added INITIAL_SIZE cars
-        lane.pushback(Car());
+    for (int i = 0; i < INITIAL_SIZE; i++) { // added INITIAL_SIZE cars
+        lane.push_back(Car());
 
     }
 
@@ -23,12 +25,13 @@ int main(){
         cout << "    ";
         c.print();     
     }
+    cout << endl; 
 
     cout << "Front car: " ; // access front and back
     lane.front().print();
     
     cout << "Back car: ";
-    lane.back().print
+    lane.back().print();
 
     return 0;
 }    
