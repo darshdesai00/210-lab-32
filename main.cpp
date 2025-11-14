@@ -65,20 +65,16 @@ int main(){
         cout << "Queue:\n";
         if (lane.empty()){
             cout << " Empty ";
-        } else {
+        } 
+        else {
+            for (auto &c : lane) {
+                cout << "   ";
+                c.print();
+            }
         }
 
-        }
-
-
-
-
-        
-        
-        
+        timeStep++;
     }
-}    
 
-
-
-
+    return 0;
+}
