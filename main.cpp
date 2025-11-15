@@ -34,11 +34,9 @@ int main(){
     lane.back().print();
     cout << endl;
 
-    return 0;
-
     // start simulation
     srand(time(0)); // seed randome generator
-    int timetep = 1;
+    int timeStep = 1;
 
     // loop structure
     while (!lane.empty()){
@@ -55,8 +53,8 @@ int main(){
            paying.print();
         } else {
         // below a new car joins (45%)
-           car incoming;
-           lane.push_back
+           Car incoming;
+           lane.push_back(incoming);
            cout << " joined lane: ";
            incoming.print();
         }
