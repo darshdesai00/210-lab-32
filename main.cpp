@@ -7,26 +7,29 @@
 
 using namespace std;
 
-const int INITIAL_SIZE = 2;
+const int NUM_LANES = 4;
 
 int main(){
 
-    cout << "Begining The Toll Booth Simulation\n";
+    cout << "Testing multi-lane plaza structure\n\n";
 
-    deque<Car> lane; // added a makeshift lane for the toll
+    deque<Car> lanes[NUM_LANES]; // created a array 4 lanes
 
-    for (int i = 0; i < INITIAL_SIZE; i++) { // added INITIAL_SIZE cars
-        lane.push_back(Car());
+    cout << "Adding test cars to each lane...\n";
+    for (int i = 0; i < NUM_LANES; i++) { // added INITIAL_SIZE cars
+        lanes[i].push_back(Car()); // pushes a test car
 
     }
 
     // print initial queue
     cout << "Initial queue:\n";
-    for (auto &c : lane) {
+    for (int i = 0; i < NUM_LANES; i++) {
+    cout << "Lane " << (i + 1) << ":\n";
+    for (auto &c : lanes) {
         cout << "    ";
         c.print();     
     }
-    cout << endl; 
+    }
 
     cout << "Front car: " ; // access front and back
     lane.front().print();
