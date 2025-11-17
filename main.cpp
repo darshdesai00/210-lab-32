@@ -50,32 +50,41 @@ int main() {
 
     int r = rand() % 100; // 0–99
 
-    // 50% pay, 50% join
-    if (r < 50) {
-
-    // PAY if lane not empty
+    if (r < 46) {
+    // (46%) Car pays and leaves
     if (!lanes[lane].empty()) {
     Car paying = lanes[lane].front();
     lanes[lane].pop_front();
     cout << "Lane: " << (lane + 1) << " Paid: ";
     paying.print();
     } else {
-
-    // lane empty
+    // lane empty to auto join
     Car incoming;
     lanes[lane].push_back(incoming);
     cout << "Lane: " << (lane + 1) << " Joined: ";
     incoming.print();
     }
     }
-    else {
-    // JOIN new car
+    else if (r < 85) {
+
+    // (39%) new car joins this lane
     Car incoming;
     lanes[lane].push_back(incoming);
     cout << "Lane: " << (lane + 1) << " Joined: ";
     incoming.print();
     }
     } 
+
+    else {
+    // (15%) Rear car switches lanes
+    if (!lanes[lane].empty()) {
+    Car switching = lanes[lane].back();
+    lanes[lane].pop_back();
+    
+
+}
+
+
     // print the plaza operations
     for (int i = 0; i < NUM_LANES; i++) {
 
