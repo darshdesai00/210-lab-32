@@ -25,4 +25,17 @@ int main(){
 
     // print all lanes in correct format
     for (int i = 0; i < NUM_LANES; i++) {
-    
+    cout << "Lane " << (i + 1) << ":\n";
+
+    if (lanes[i].empty()) {
+    cout << "    (empty)\n";
+    } else {
+    for (auto &c : lanes[i]) {
+    cout << "    ";
+    c.print();
+    }
+    }
+    }
+
+    return 0;
+}
