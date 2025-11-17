@@ -51,60 +51,61 @@ int main() {
 
             if (r < 46) {
                 // (46%) Car pays and leaves
-if (!lanes[lane].empty()) {
-Car paying = lanes[lane].front();
-lanes[lane].pop_front();
-cout << "Lane: " << (lane + 1) << " Paid: ";
-paying.print();
-} else {
-// lane empty to auto join
-Car incoming;
-lanes[lane].push_back(incoming);
-cout << "Lane: " << (lane + 1) << " Joined: ";
-incoming.print();
-}
-}
-else if (r < 85) {
-// (39%) new car joins this lane
-Car incoming;
-lanes[lane].push_back(incoming);
-cout << "Lane: " << (lane + 1) << " Joined: ";
-incoming.print();
-}
-else {
-// (15%) Rear car switches lanes
-if (!lanes[lane].empty()) {
-Car switching = lanes[lane].back();
-lanes[lane].pop_back();
+                if (!lanes[lane].empty()) {
+                    Car paying = lanes[lane].front();
+                    lanes[lane].pop_front();
+                    cout << "Lane: " << (lane + 1) << " Paid: ";
+                    paying.print();
+                } else {
+                    // lane empty to auto join
+                    Car incoming;
+                    lanes[lane].push_back(incoming);
+                    cout << "Lane: " << (lane + 1) << " Joined: ";
+                    incoming.print();
+                }
+            }
+            else if (r < 85) {
+                // (39%) new car joins this lane
+                Car incoming;
+                lanes[lane].push_back(incoming);
+                cout << "Lane: " << (lane + 1) << " Joined: ";
+                incoming.print();
+            }
+            else {
+                // (15%) Rear car switches lanes
+                if (!lanes[lane].empty()) {
+                    Car switching = lanes[lane].back();
+                    lanes[lane].pop_back();
 
-// choose a different lane
-int newLane = lane;
-while (newLane = lane) {
-newLane = rand() % NUM_LANES;
-}
+                    // choose a different lane
+                    int newLane = lane;
+                    while (newLane == lane) {
+                        newLane = rand() % NUM_LANES;
+                    }
 
-lanes[newLane].push_back(switching);
+                    lanes[newLane].push_back(switching);
 
-cout << "Lane: " << (lane + 1)
-<< " Switched → Lane " << (newlane + 1) << ": ";
-switching.print();
-}
-}
+                    cout << "Lane: " << (lane + 1)
+                         << " Switched → Lane " << (newLane + 1) << ": ";
+                    switching.print();
+                }
+            }
+        }
 
-// print plaza after operations
-for (int i = 0; i < NUM_LANES; i++) {
-cout << "Lane " << (i + 1) << " Queue:\n";
+        // print plaza after operations
+        for (int i = 0; i < NUM_LANES; i++) {
+            cout << "Lane " << (i + 1) << " Queue:\n";
 
-if (lanes[i].empty()) {
-cout << "    empty\n";
-} else {
-for (auto &c : lanes[i]) {
-cout << "    ";
-c.print();
-}
-} 
-}
-}
+            if (lanes[i].empty()) {
+                cout << "    empty\n";
+            } else {
+                for (auto &c : lanes[i]) {
+                    cout << "    ";
+                    c.print();
+                }
+            }
+        }
+    }
 
-return 0;
+    return 0;
 }
