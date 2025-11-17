@@ -24,7 +24,7 @@ int main(){
     cout << "Current Line Status:\n";
     for (int i = 0; i < NUM_LANES; i++) {
         cout << "Lane " << (i + 1) << ":\n";
-        for (auto &c : lanes) {
+        for (auto &c : lanes[i]) {
             cout << "    ";
             c.print();    
         }
@@ -55,4 +55,19 @@ int main(){
     leaving.print();
     }
     
-   
+    // The final lane status
+    cout << "final lane status:\n";
+    cout << "\nFinal lane structure after tests:\n";
+    for (int i = 0; i < NUM_LANES; i++) {
+    cout << "Lane " << (i + 1) << ":\n";
+    if (lanes[i].empty()) {
+    cout << "    (empty)\n";
+    } else {
+    for (auto &c : lanes[i]) {
+    cout << "    ";
+    c.print();
+            }
+        }   
+    }
+return 0; 
+}
