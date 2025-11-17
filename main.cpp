@@ -18,65 +18,41 @@ int main(){
     cout << "Adding test cars to each lane...\n";
     for (int i = 0; i < NUM_LANES; i++) { // added INITIAL_SIZE cars
         lanes[i].push_back(Car()); // pushes a test car
-
     }
 
-    // print initial queue
-    cout << "Initial queue:\n";
+    // print data of each line
+    cout << "Current Line Status:\n";
     for (int i = 0; i < NUM_LANES; i++) {
-    cout << "Lane " << (i + 1) << ":\n";
-    for (auto &c : lanes) {
-        cout << "    ";
-        c.print();     
-    }
+        cout << "Lane " << (i + 1) << ":\n";
+        for (auto &c : lanes) {
+            cout << "    ";
+            c.print();    
+        }
     }
 
-    cout << "Front car: " ; // access front and back
-    lane.front().print();
+    // Test accessing front and back of lane 1
+    cout << "\nTesting the front/back of Lane 1:\n";; 
+    lanes[0].front().print();
+    lanes[0].back().print();
     
-    cout << "Back car: ";
-    lane.back().print();
-    cout << endl;
+    // add another car to lane 2
+    cout << "\nAdding a second car to Lane 2\n";
+    lanes[1].push_back(Car());
 
-    // start simulation
-    srand(time(0)); // seed randome generator
-    int timeStep = 1;
-
-    // loop structure
-    while (!lane.empty()){
-        cout << "\nTime: " << timeStep << " Operation: ";
-
-        // random 0-99 
-        int r = rand() % 100; 
-
-        if (r < 55) {
-        // below the car is paying and leaves the front of the line (55%)
-           Car paying = lane.front(); 
-           lane.pop_front();
-           cout << "Payment Complete: ";
-           paying.print();
-        } else {
-        // below a new car joins (45%)
-           Car incoming;
-           lane.push_back(incoming);
-           cout << " joined lane: ";
-           incoming.print();
-        }
-
-        // below prints the updated queue
-        cout << "Queue:\n";
-        if (lane.empty()){
-            cout << " Empty ";
-        } 
-        else {
-            for (auto &c : lane) {
-                cout << "   ";
-                c.print();
-            }
-        }
-
-        timeStep++;
+    cout << "Lane 2 now has:\n";
+    for (auto &c : lanes[1]) {
+        cout << "    ";
+        c.print();
     }
+    
 
-    return 0;
-}
+    // Remove the front car from Lane 3
+    cout << "\nRemoving front car from Lane 3...\n";
+    if (!lanes[2].empty()) {
+    Car leaving = lanes[2].front();
+    lanes[2].pop_front();
+    cout << "Removed: ";
+    leaving.print();
+    }
+    
+   
