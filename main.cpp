@@ -12,6 +12,8 @@ const int INITIAL_SIZE = 2;
 
 int main(){
 
+    srand(time(0)); // seed random
+
     cout << "Initial queue:\n";
 
     deque<Car> lanes[NUM_LANES]; // created a array 4 lanes
@@ -35,7 +37,46 @@ int main(){
     c.print();
     }
     }
+    
+
+    // reintroducing simulation logic (20 time steos)
+    for (int t = 1; t <= 20; t+) {
+    cout << "\nTime: " << t << "\n";
+
+    // one operation PER LANE
+    for (int lane = 0; lane < NUM_LANES; lane++) {
+    int r = rand() % 100; // 0–99
+
+    // 50% pay, 50% join
+    if (r < 50) {
+
+    // PAY if lane not empty
+    if (!lanes[lane].empty()) {
+    Car paying = lanes[lane].front();
+    lanes[lane].pop_front();
+    cout << "Lane: " << (lane + 1) << " Paid: ";
+    paying.print();
+    } else {
+
+    // lane empty
+    Car incoming;
+    lanes[lane].push_back(incoming);
+    out << "Lane: " << (lane + 1) << " Joined: ";
+    incoming.print();
+    }
+    }
+    
+    // print the plaza opperations
+    for int (i = 0; < NUM_LANES; i++) {
+    cout << "Lane " << (i + 1) << " Queue:\n";
+  
     }
 
-    return 0;
-}
+
+
+
+
+
+
+
+
